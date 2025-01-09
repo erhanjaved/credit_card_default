@@ -162,6 +162,14 @@ A final reason why our results could be problematic is averaging all of our `BIL
 `PAY_AMT` in our feature engineering steps could have removed some useful information in ex-
 change for reducing dimensionality, which could have been a poor tradeoff.
 
----
-
 This analysis demonstrates the practical application of machine learning in financial risk management. By identifying patterns in client behavior, institutions can make more informed decisions and mitigate risk effectively.
+
+--- 
+
+## Acknowledgments
+
+We would like to express our sincere gratitude to the instructors and teaching assistants of **CPSC 330: Applied Machine Learning** at the University of British Columbia. Their guidance, support, and insightful lectures provided us with a strong foundation in machine learning concepts and practical skills.
+
+Special thanks for designing thought-provoking assignments like this one, which challenged us to apply our knowledge to real-world problems and enhance our critical thinking. The feedback and resources provided throughout the course were invaluable in deepening our understanding of the subject. 
+
+This project would not have been possible without their dedication to fostering a collaborative and enriching learning environment. Thank you for inspiring us to explore the fascinating field of machine learning!
