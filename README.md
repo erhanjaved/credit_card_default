@@ -6,6 +6,12 @@ This analysis provides an overview of our analysis and modeling efforts to predi
 ---
 ## Introduction
 
+<div align="center">
+  <img src="img/intro.jpg" alt="intro" width="400">
+</div>
+
+
+
 Predicting whether a customer will default on their credit card payment is a critical task for financial institutions. Credit card defaults can result in significant financial losses for banks and lenders, making it essential to identify high-risk customers before defaults occur. This problem falls under the category of binary classification in machine learning, where the goal is to predict a "default" (1) or "no default" (0) outcome based on customer data.
 
 The dataset used for this analysis, [Default of Credit Card Clients Dataset](https://www.kaggle.com/uciml/default-of-credit-card-clients-dataset), contains demographic, financial, and repayment information of 30,000 clients. This rich dataset provides an opportunity to explore various predictive modeling techniques and gain insights into customer behavior.
