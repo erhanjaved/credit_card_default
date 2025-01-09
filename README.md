@@ -90,7 +90,7 @@ The dataset contains 30,000 samples and 24 features, including:
 
 #### Figure 1: 
 
-<img src="EDA.png" alt="Class Distribution" width="400">
+<img src="img/EDA.png" alt="Class Distribution" width="400">
 
 Figure 1 indicates that there is class imbalance based on the proportions of de-
 fault.payment.next.month. Additional statistics described 77.7% having no payment next month
@@ -99,7 +99,7 @@ would have reasonable accuracy.
 
 #### Figure 2
 
-<img src="EDA2.png" alt="Class Distribution" width="400">
+<img src="img/EDA2.png" alt="Class Distribution" width="400">
 
 Figure 2 describes the distribution of the repayment status in September, which is the most recent
 status. There seems to be an association between more delays in repayment status and being
