@@ -1,11 +1,30 @@
-# Blog Post: Predicting Credit Card Defaults with Machine Learning
+# Predicting Credit Card Defaults with Machine Learning
+## Erhan Asad Javed & Jun He Cui
 
-This blog post provides an overview of our analysis and modeling efforts to predict credit card defaults using the **Default of Credit Card Clients Dataset**. The target audience is someone with a solid technical foundation but limited prior exposure to machine learning. The dataset can be accessed [here](https://www.kaggle.com/uciml/default-of-credit-card-clients-dataset).
+This analysis provides an overview of our analysis and modeling efforts to predict credit card defaults using the **Default of Credit Card Clients Dataset**. The target audience is someone with a solid technical foundation but limited prior exposure to machine learning.
 
 ---
+## Introduction
 
-## Problem Description
-The objective was to predict whether a client will default on their credit card payment next month. This is a binary classification problem where the target variable, `default.payment.next.month`, is labeled as `1` (default) or `0` (no default). The analysis aimed to assist financial institutions in identifying high-risk customers.
+Predicting whether a customer will default on their credit card payment is a critical task for financial institutions. Credit card defaults can result in significant financial losses for banks and lenders, making it essential to identify high-risk customers before defaults occur. This problem falls under the category of binary classification in machine learning, where the goal is to predict a "default" (1) or "no default" (0) outcome based on customer data.
+
+The dataset used for this analysis, [Default of Credit Card Clients Dataset](https://www.kaggle.com/uciml/default-of-credit-card-clients-dataset), contains demographic, financial, and repayment information of 30,000 clients. This rich dataset provides an opportunity to explore various predictive modeling techniques and gain insights into customer behavior.
+
+### Why Is This Analysis Important?
+
+1. **Financial Risk Mitigation**: By identifying potential defaulters in advance, financial institutions can take proactive measures such as revising credit limits or offering personalized repayment plans, thereby minimizing financial losses.
+
+2. **Improved Resource Allocation**: Knowing which customers are at risk allows banks to focus their resources on high-risk accounts, optimizing their collections and risk management strategies.
+
+3. **Data-Driven Decision Making**: This analysis demonstrates the power of machine learning to uncover patterns and relationships in data that might not be immediately apparent, enabling better decision-making.
+
+4. **Customer Retention**: Understanding the factors leading to default can also help institutions design interventions to retain customers and support them in avoiding default, fostering better customer relationships.
+
+Through this analysis, we aim to not only build predictive models but also provide insights into the factors influencing credit card defaults. This understanding can be leveraged to make the lending process more equitable, efficient, and resilient.
+
+
+The objective was to predict whether a client will default on their credit card payment next month. This is a binary classification 
+problem where the target variable, `default.payment.next.month`, is labeled as `1` (default) or `0` (no default). The analysis aimed to assist financial institutions in identifying high-risk customers.
 
 ---
 
@@ -14,6 +33,37 @@ The dataset contains 30,000 samples and 24 features, including:
 - **Demographics**: Gender, age, education, marital status.
 - **Financial Information**: Credit limit (`LIMIT_BAL`), past bill amounts (`BILL_AMT1` to `BILL_AMT6`), and repayment status (`PAY_0` to `PAY_6`).
 - **Target Variable**: `default.payment.next.month`.
+
+### Feature Description Table
+
+| Feature Name                 | Description                                                                 |
+|------------------------------|-----------------------------------------------------------------------------|
+| `ID`                         | ID of each client                                                          |
+| `LIMIT_BAL`                  | Amount of given credit in NT dollars (includes individual and family credit)|
+| `SEX`                        | Gender (1 = male, 2 = female)                                              |
+| `EDUCATION`                  | Education level (1 = graduate school, 2 = university, 3 = high school, 4 = others, 5/6 = unknown) |
+| `MARRIAGE`                   | Marital status (1 = married, 2 = single, 3 = others)                       |
+| `AGE`                        | Age in years                                                              |
+| `PAY_0`                      | Repayment status in September 2005 (-1 = pay duly, 1 = delay 1 month, ..., 9 = delay 9+ months) |
+| `PAY_2`                      | Repayment status in August 2005 (same scale as `PAY_0`)                   |
+| `PAY_3`                      | Repayment status in July 2005 (same scale as `PAY_0`)                     |
+| `PAY_4`                      | Repayment status in June 2005 (same scale as `PAY_0`)                     |
+| `PAY_5`                      | Repayment status in May 2005 (same scale as `PAY_0`)                      |
+| `PAY_6`                      | Repayment status in April 2005 (same scale as `PAY_0`)                    |
+| `BILL_AMT1`                  | Amount of bill statement in September 2005 (NT dollar)                   |
+| `BILL_AMT2`                  | Amount of bill statement in August 2005 (NT dollar)                      |
+| `BILL_AMT3`                  | Amount of bill statement in July 2005 (NT dollar)                        |
+| `BILL_AMT4`                  | Amount of bill statement in June 2005 (NT dollar)                        |
+| `BILL_AMT5`                  | Amount of bill statement in May 2005 (NT dollar)                         |
+| `BILL_AMT6`                  | Amount of bill statement in April 2005 (NT dollar)                       |
+| `PAY_AMT1`                   | Amount of previous payment in September 2005 (NT dollar)                 |
+| `PAY_AMT2`                   | Amount of previous payment in August 2005 (NT dollar)                    |
+| `PAY_AMT3`                   | Amount of previous payment in July 2005 (NT dollar)                      |
+| `PAY_AMT4`                   | Amount of previous payment in June 2005 (NT dollar)                      |
+| `PAY_AMT5`                   | Amount of previous payment in May 2005 (NT dollar)                       |
+| `PAY_AMT6`                   | Amount of previous payment in April 2005 (NT dollar)                     |
+| `default.payment.next.month` | Default payment (1 = yes, 0 = no)                                         |
+
 
 ### Key Observations:
 1. **Class Imbalance**:  
@@ -38,15 +88,19 @@ The dataset contains 30,000 samples and 24 features, including:
 2. **Repayment Status**: Delays in September (most recent data point) showed a strong association with default rates.  
 3. **Age and Credit Limit Trends**: Explored demographic patterns affecting default behavior.
 
-Figure 1: 
+#### Figure 1: 
+
 <img src="EDA.png" alt="Class Distribution" width="400">
+
 Figure 1 indicates that there is class imbalance based on the proportions of de-
 fault.payment.next.month. Additional statistics described 77.7% having no payment next month
 and 22.3% having payment next month. This means that a dummy classifier that just predicts ‘0’
 would have reasonable accuracy.
 
-Figure 2
+#### Figure 2
+
 <img src="EDA2.png" alt="Class Distribution" width="400">
+
 Figure 2 describes the distribution of the repayment status in September, which is the most recent
 status. There seems to be an association between more delays in repayment status and being
 classified as default payment, which logically makes sense. This implies that this will potentially
@@ -68,7 +122,7 @@ be an important feature in our classification models.
 ## Model Selection and Results
 We tested multiple models and tuned hyperparameters to optimize performance:
 
-### Model Comparison Table:
+### Table 1: Model Comparison Table:
 | Model                 | Best Hyperparameters                    | Cross-Validation Score | Test Score |
 |-----------------------|------------------------------------------|-------------------------|------------|
 | Random Forest         | `n_estimators=50, max_depth=5`          | 0.83                    | 0.82       |
@@ -76,7 +130,7 @@ We tested multiple models and tuned hyperparameters to optimize performance:
 | Logistic Regression   | `C=1`                                   | 0.810                   | 0.810      |
 | kNN                   | `n_neighbors=17`                        | 0.813                   | 0.813      |
 
-### Random Forest Performance Metrics:
+### Table 2: Random Forest Performance Metrics:
 | Metric    | Score |
 |-----------|-------|
 | Precision | 0.66  |
@@ -93,21 +147,20 @@ threshold with predict_proba.
 
 ---
 
-## Caveats
-1. **Class Imbalance**:
-   - Models may focus too heavily on the majority class (non-defaulting clients).
-2. **Feature Averaging**:
-   - Combining `BILL_AMT` and `PAY_AMT` features might have lost crucial temporal details.
-3. **Limited Generalizability**:
-   - Dataset was specific to a single time and region, possibly reducing its applicability elsewhere.
+## Final Remarks
 
----
+Our results may be problematic for various reasons, a large one being insufficient or imbalanced
+data. The data indicates that there are a lot more non-defaulting clients such that the Dummy
+Classifier gets a 77% accuracy from just predicting every client to not default. Another reason
+why our results could be misleading is that it could be underfitting on the data indicated by the
+very low recall score in comparison to the accuracy, which means that the model predicts many
+false negatives. This likely means that the model is not capturing enough nuances in the data to
+properly predict positives in many cases.
 
-## Communication Technique
-We employed the **"bottom-up explanations"** approach:
-- Started with data exploration and EDA.
-- Progressed logically through feature engineering, model selection, and evaluation.
-- Used embedded visualizations to make the narrative more intuitive and engaging.
+
+A final reason why our results could be problematic is averaging all of our `BILL_AMT` and
+`PAY_AMT` in our feature engineering steps could have removed some useful information in ex-
+change for reducing dimensionality, which could have been a poor tradeoff.
 
 ---
 
