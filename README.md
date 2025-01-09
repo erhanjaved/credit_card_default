@@ -38,6 +38,20 @@ The dataset contains 30,000 samples and 24 features, including:
 2. **Repayment Status**: Delays in September (most recent data point) showed a strong association with default rates.  
 3. **Age and Credit Limit Trends**: Explored demographic patterns affecting default behavior.
 
+Figure 1: 
+<img src="EDA.png" alt="Class Distribution" width="400">
+Figure 1 indicates that there is class imbalance based on the proportions of de-
+fault.payment.next.month. Additional statistics described 77.7% having no payment next month
+and 22.3% having payment next month. This means that a dummy classifier that just predicts ‘0’
+would have reasonable accuracy.
+
+Figure 2
+<img src="EDA2.png" alt="Class Distribution" width="400">
+Figure 2 describes the distribution of the repayment status in September, which is the most recent
+status. There seems to be an association between more delays in repayment status and being
+classified as default payment, which logically makes sense. This implies that this will potentially
+be an important feature in our classification models.
+
 ---
 
 ## Feature Engineering and Preprocessing
@@ -68,6 +82,14 @@ We tested multiple models and tuned hyperparameters to optimize performance:
 | Precision | 0.66  |
 | Recall    | 0.37  |
 | F1 Score  | 0.48  |
+
+The above tables indicate best performing model was of type RandomForestClassifier with the
+above hyperparameters, which had a test score of 0.82 while the cross validation score was very
+similar, implying that the model did not overfit. We could have tried other models such as Linear
+SVM for additional improvement. An idea we did not try but could improve the performance is
+to optimize the recall. This would minimize the amount of false negatives which is preferable to
+increase the amount of defaulting clients detected. This could be done by lowering the decision
+threshold with predict_proba.
 
 ---
 
