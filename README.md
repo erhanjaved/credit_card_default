@@ -1,6 +1,6 @@
 # Blog Post: Predicting Credit Card Defaults with Machine Learning
 
-This blog post provides an overview of our analysis and modeling efforts to predict credit card defaults using the **Default of Credit Card Clients Dataset**. The target audience is someone with a solid technical foundation but limited prior exposure to machine learning.
+This blog post provides an overview of our analysis and modeling efforts to predict credit card defaults using the **Default of Credit Card Clients Dataset**. The target audience is someone with a solid technical foundation but limited prior exposure to machine learning. The dataset can be accessed [here](https://www.kaggle.com/uciml/default-of-credit-card-clients-dataset).
 
 ---
 
