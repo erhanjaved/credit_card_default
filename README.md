@@ -174,7 +174,7 @@ This analysis demonstrates the practical application of machine learning in fina
 
 ## Acknowledgments
 
-We would like to express our sincere gratitude to the instructors and teaching assistants of **CPSC 330: Applied Machine Learning** at the University of British Columbia. Their guidance, support, and insightful lectures provided us with a strong foundation in machine learning concepts and practical skills.
+We would like to express our sincere gratitude to the instructors and teaching assistants of **CPSC 330: Applied Machine Learning** at the University of British Columbia. Their guidance, support, and insightful lectures provided us with a strong foundation in machine learning concepts and practical skills. This analysis was adapted from a open-ended homework assignment.
 
 Special thanks for designing thought-provoking assignments like this one, which challenged us to apply our knowledge to real-world problems and enhance our critical thinking. The feedback and resources provided throughout the course were invaluable in deepening our understanding of the subject. 
 
