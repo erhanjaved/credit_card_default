@@ -155,18 +155,13 @@ threshold with predict_proba.
 
 ## Final Remarks
 
-Our results may be problematic for various reasons, a large one being insufficient or imbalanced
-data. The data indicates that there are a lot more non-defaulting clients such that the Dummy
-Classifier gets a 77% accuracy from just predicting every client to not default. Another reason
-why our results could be misleading is that it could be underfitting on the data indicated by the
-very low recall score in comparison to the accuracy, which means that the model predicts many
-false negatives. This likely means that the model is not capturing enough nuances in the data to
-properly predict positives in many cases.
+One significant issue is the imbalance in the dataset, with a far larger proportion of non-defaulting clients. This imbalance allowed the Dummy Classifier, which predicts all clients as non-defaulting, to achieve a 77% accuracy, highlighting the need for better handling of imbalanced data.
+
+Another issue is potential underfitting of our model, as evidenced by a very low recall score relative to the accuracy. This indicates that the model generates many false negatives, suggesting it fails to capture the nuances in the data necessary for accurately predicting positive cases. In the future, we could explore more complex models or feature engineering techniques to address this limitation.
+
+Lastly, during feature engineering, we averaged values for `BILL_AMT` and `PAY_AMT` to reduce dimensionality. While this simplified the dataset, it may have discarded valuable information. To improve, we could explore alternative methods for dimensionality reduction that retain more of the dataset’s predictive power, such as clustering or selecting representative features.
 
 
-A final reason why our results could be problematic is averaging all of our `BILL_AMT` and
-`PAY_AMT` in our feature engineering steps could have removed some useful information in ex-
-change for reducing dimensionality, which could have been a poor tradeoff.
 
 This analysis demonstrates the practical application of machine learning in financial risk management. By identifying patterns in client behavior, institutions can make more informed decisions and mitigate risk effectively.
 
